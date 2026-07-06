@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - OptiCrop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #059669; --primary-dark: #047857; --secondary: #10b981;
+            --bg-dark: #0f172a; --text-main: #1e293b; --text-light: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.85); --glass-border: rgba(255, 255, 255, 0.5);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar {
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; }
+        .nav-links a:hover { color: var(--primary); background: rgba(16,185,129,0.1); }
+        .nav-links a.active { color: white; background: var(--primary); box-shadow: 0 4px 12px rgba(5,150,105,0.3); }
+        
+        main { flex: 1; padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center; }
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);
+            border-radius: 24px; padding: 3.5rem; width: 100%; max-width: 900px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        h2 { color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 2px solid rgba(16,185,129,0.2); padding-bottom: 1rem; }
+        h3 { color: var(--bg-dark); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.5rem; }
+        h3 i { color: var(--secondary); font-size: 1.2rem; }
+        p { margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.1rem; color: #334155; }
+        
+        .section-card {
+            background: rgba(255,255,255,0.7); border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem;
+            border-left: 5px solid var(--secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.03); transition: transform 0.3s ease;
+        }
+        .section-card:hover { transform: translateX(5px); }
+        .section-card h3 { margin-top: 0; color: var(--primary-dark); }
+        
+        .info-list { list-style: none; }
+        .info-list li { margin-bottom: 0.8rem; font-size: 1.05rem; display: flex; align-items: flex-start; gap: 0.8rem; }
+        .info-list li i { color: var(--secondary); margin-top: 0.3rem; }
+        
+        footer { background: var(--bg-dark); color: white; text-align: center; padding: 2rem; margin-top: auto; }
+        footer p { color: #94a3b8; font-size: 0.9rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="nav-brand"><i class="fa-solid fa-leaf"></i> OptiCrop</a>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('project') }}" class="active">Project</a>
+            <a href="{{ url_for('findyourcrop') }}">Find Your Crop</a>
+        </div>
+    </nav>
+    <main>
+        <div class="glass-card">
+            <h2>OptiCrop: Smart Agricultural Optimization</h2>
+            <p>The project "Opti Crop: Smart Agricultural Production Optimization Engine" aims to develop an advanced software system that utilizes data-driven insights to optimize agricultural production for different crops. By integrating key environmental factors such as Nitrogen (N), Phosphorus (P), Potassium (K) levels, soil temperature, humidity, pH, rainfall, and crop types, Opti Crop seeks to provide intelligent recommendations to farmers for maximizing yields and resource efficiency.</p>
+            <p>The knowledge and insights gained through the Opti Crop project can be utilized by agricultural researchers, policymakers, and stakeholders to advance the understanding of crop-environment interactions and inform the development of evidence-based agricultural strategies.</p>
+            
+            <div class="section-card">
+                <h3><i class="fa-solid fa-clipboard-list"></i> Project Objectives</h3>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Develop a machine learning model to predict suitable crops based on environmental conditions.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Analyze and preprocess agricultural data to ensure model accuracy.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Create an intuitive, modern web interface for farmers.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Implement clustering analysis to group similar crops based on environmental requirements.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Provide actionable insights for agricultural optimization.</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Build a scalable system supporting 22 different crop varieties.</li>
+                </ul>
+            </div>
+            
+            <div class="section-card">
+                <h3><i class="fa-solid fa-sparkles"></i> Key Features</h3>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-bolt"></i> <strong>Data-driven crop recommendations</strong> based on soil and environmental parameters.</li>
+                    <li><i class="fa-solid fa-bolt"></i> <strong>Machine learning powered prediction engine</strong> with 96.36% accuracy.</li>
+                    <li><i class="fa-solid fa-bolt"></i> <strong>User-friendly web interface</strong> built with modern glassmorphism design.</li>
+                    <li><i class="fa-solid fa-bolt"></i> <strong>Real-time analysis</strong> of multiple environmental factors.</li>
+                    <li><i class="fa-solid fa-bolt"></i> <strong>Support for 22 crop varieties</strong> including cereals, pulses, and cash crops.</li>
+                </ul>
+            </div>
+            
+            <div class="section-card">
+                <h3><i class="fa-solid fa-database"></i> Dataset Information</h3>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-chart-pie"></i> <strong>Total Samples:</strong> 2,200+ agricultural records</li>
+                    <li><i class="fa-solid fa-chart-pie"></i> <strong>Features:</strong> 7 environmental factors (N, P, K, Temperature, Humidity, pH, Rainfall)</li>
+                    <li><i class="fa-solid fa-chart-pie"></i> <strong>Crop Classes:</strong> 22 different crop varieties</li>
+                    <li><i class="fa-solid fa-chart-pie"></i> <strong>Model Accuracy:</strong> Training: 97.50% | Testing: 96.36%</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 OptiCrop - Smart Agricultural Optimization Using ML | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

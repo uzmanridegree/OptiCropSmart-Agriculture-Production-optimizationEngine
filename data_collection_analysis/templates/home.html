@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opti Crop - Intelligent Agriculture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #059669; --primary-dark: #047857; --secondary: #10b981;
+            --bg-dark: #0f172a; --text-main: #1e293b; --text-light: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.85); --glass-border: rgba(255, 255, 255, 0.5);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+            color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-light); font-weight: 500; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); background: rgba(16,185,129,0.1); }
+        .nav-links a.active { color: white; background: var(--primary); box-shadow: 0 4px 12px rgba(5,150,105,0.3); }
+        main { flex: 1; padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center; }
+        .hero { text-align: center; margin-bottom: 3rem; animation: fadeInDown 0.8s ease-out; }
+        .hero h1 { font-size: 3.5rem; font-weight: 700; color: var(--bg-dark); margin-bottom: 1rem; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 1.2rem; color: var(--text-light); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);
+            border-radius: 24px; padding: 3rem; width: 100%; max-width: 900px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .glass-card h2 { color: var(--primary-dark); margin-bottom: 1.5rem; font-size: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+        .glass-card p { margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.1rem; color: #334155; }
+        .btn-start {
+            display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 12px; font-weight: 600; font-size: 1.1rem;
+            transition: all 0.3s; box-shadow: 0 4px 15px rgba(16,185,129,0.3); margin-top: 1rem;
+        }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(16,185,129,0.4); color: white; }
+        footer { background: var(--bg-dark); color: white; text-align: center; padding: 2rem; }
+        footer p { color: #94a3b8; font-size: 0.9rem; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="nav-brand"><i class="fa-solid fa-leaf"></i> OptiCrop</a>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}" class="active">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('project') }}">Project</a>
+            <a href="{{ url_for('findyourcrop') }}">Find Your Crop</a>
+        </div>
+    </nav>
+    <main>
+        <div class="hero">
+            <h1>Grow Smarter with <span>OptiCrop</span></h1>
+            <p>Advanced machine learning to optimize your agricultural production based on environmental data.</p>
+        </div>
+        <div class="glass-card">
+            <h2><i class="fa-solid fa-seedling"></i> Welcome to OptiCrop</h2>
+            <p>Opti Crop is an intelligent agricultural recommendation system powered by machine learning. Our system analyzes environmental and soil conditions to recommend the best crops for your farm.</p>
+            <p>Using advanced data analysis and predictive models trained on over 2,200 crop samples, Opti Crop provides personalized recommendations to maximize your agricultural yield and resource efficiency.</p>
+            <p><strong>Ready to optimize your yield?</strong> Navigate to our recommendation engine and enter your soil and environmental parameters to receive an instant crop recommendation tailored for your specific conditions.</p>
+            <div style="text-align: center;">
+                <a href="{{ url_for('findyourcrop') }}" class="btn-start">Get Started <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 OptiCrop - Smart Agricultural Optimization Using ML | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

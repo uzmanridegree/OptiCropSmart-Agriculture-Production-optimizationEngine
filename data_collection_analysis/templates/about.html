@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - OptiCrop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #059669; --primary-dark: #047857; --secondary: #10b981;
+            --bg-dark: #0f172a; --text-main: #1e293b; --text-light: #64748b;
+            --glass-bg: rgba(255, 255, 255, 0.85); --glass-border: rgba(255, 255, 255, 0.5);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        body { background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar {
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; padding: 0.5rem 1rem; border-radius: 8px; transition: all 0.3s; }
+        .nav-links a:hover { color: var(--primary); background: rgba(16,185,129,0.1); }
+        .nav-links a.active { color: white; background: var(--primary); box-shadow: 0 4px 12px rgba(5,150,105,0.3); }
+        
+        main { flex: 1; padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center; }
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: blur(16px); border: 1px solid var(--glass-border);
+            border-radius: 24px; padding: 3.5rem; width: 100%; max-width: 900px; box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        h2 { color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 2px solid rgba(16,185,129,0.2); padding-bottom: 1rem; }
+        h3 { color: var(--bg-dark); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        h3 i { color: var(--secondary); font-size: 1.2rem; }
+        p { margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.1rem; color: #334155; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+        .feature-item {
+            background: rgba(255,255,255,0.6); border-radius: 16px; padding: 1.5rem; border: 1px solid rgba(16,185,129,0.2);
+            transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .feature-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(16,185,129,0.1); background: white; }
+        .feature-item strong { display: block; color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        
+        .tech-list { list-style: none; display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+        .tech-list li {
+            background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(5,150,105,0.1)); color: var(--primary-dark);
+            padding: 0.5rem 1.2rem; border-radius: 20px; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(16,185,129,0.2);
+        }
+        
+        footer { background: var(--bg-dark); color: white; text-align: center; padding: 2rem; margin-top: auto; }
+        footer p { color: #94a3b8; font-size: 0.9rem; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="{{ url_for('home') }}" class="nav-brand"><i class="fa-solid fa-leaf"></i> OptiCrop</a>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('about') }}" class="active">About</a>
+            <a href="{{ url_for('project') }}">Project</a>
+            <a href="{{ url_for('findyourcrop') }}">Find Your Crop</a>
+        </div>
+    </nav>
+    <main>
+        <div class="glass-card">
+            <h2>About OptiCrop</h2>
+            <p>Opti Crop is an intelligent agricultural recommendation system that leverages machine learning and data science to help farmers make informed decisions about crop selection. Our system analyzes environmental factors, soil properties, and historical crop data to provide personalized crop recommendations.</p>
+            
+            <h3><i class="fa-solid fa-bullseye"></i> Mission</h3>
+            <p>Our mission is to empower farmers with data-driven insights that optimize agricultural production, improve resource efficiency, and promote sustainable farming practices. By providing intelligent crop recommendations, Opti Crop helps farmers maximize their yields and minimize resource wastage.</p>
+            
+            <h3><i class="fa-solid fa-microscope"></i> How It Works</h3>
+            <p>Opti Crop uses advanced machine learning algorithms trained on over 2,200 crop samples to analyze your soil and environmental conditions. Our model considers seven critical factors:</p>
+            <div class="feature-grid">
+                <div class="feature-item"><strong><i class="fa-solid fa-flask"></i> Nitrogen (N)</strong> Essential for plant growth and protein synthesis</div>
+                <div class="feature-item"><strong><i class="fa-solid fa-flask"></i> Phosphorus (P)</strong> Critical for root development and energy transfer</div>
+                <div class="feature-item"><strong><i class="fa-solid fa-flask"></i> Potassium (K)</strong> Improves plant strength and disease resistance</div>
+                <div class="feature-item"><strong><i class="fa-solid fa-temperature-half"></i> Temperature</strong> Affects crop growth rate and maturity</div>
+                <div class="feature-item"><strong><i class="fa-solid fa-droplet"></i> Humidity</strong> Influences disease susceptibility and photosynthesis</div>
+                <div class="feature-item"><strong><i class="fa-solid fa-vial"></i> pH Level</strong> Determines nutrient availability in soil</div>
+                <div class="feature-item"><strong><i class="fa-solid fa-cloud-rain"></i> Rainfall</strong> Critical for crop water requirements</div>
+            </div>
+            
+            <h3><i class="fa-solid fa-star"></i> Why Opti Crop?</h3>
+            <ul class="tech-list" style="margin-bottom: 1.5rem;">
+                <li><i class="fa-solid fa-check"></i> Accurate Predictions (96.36%)</li>
+                <li><i class="fa-solid fa-check"></i> Easy to Use</li>
+                <li><i class="fa-solid fa-check"></i> Data-Driven</li>
+                <li><i class="fa-solid fa-check"></i> Instant Results</li>
+                <li><i class="fa-solid fa-check"></i> Supports 22 Crops</li>
+            </ul>
+            
+            <h3><i class="fa-solid fa-code"></i> Technology Stack</h3>
+            <ul class="tech-list">
+                <li>Machine Learning: Logistic Regression</li>
+                <li>Data Processing: Python, Pandas, NumPy</li>
+                <li>Web Framework: Flask</li>
+                <li>Frontend: HTML5, CSS3, Google Fonts</li>
+                <li>Model Training: scikit-learn</li>
+            </ul>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 OptiCrop - Smart Agricultural Optimization Using ML | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
