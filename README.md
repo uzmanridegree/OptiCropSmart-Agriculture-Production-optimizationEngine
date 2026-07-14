@@ -23,8 +23,7 @@ OptiCrop is an intelligent agricultural recommendation system that leverages mac
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/KusumaReddyYarram/opti-crop.git
-   cd opti-crop
+   git clone https://github.com/uzmanridegree/OptiCropSmart-Agriculture-Production-optimizationEngine
    ```
 
 2. **Install dependencies**:
